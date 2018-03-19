@@ -41,4 +41,16 @@ describe Cuboid do
       expect(cuboid2.volume).to eq 100
     end
   end
+  describe '#inside?' do
+    it 'returns true if no corner of cuboid goes outside passed cuboid' do
+      outside = Cuboid.new(dimensions: [10, 10, 10])
+      inside = Cuboid.new(dimensions: [9, 9, 9])
+      expect(inside.inside?(outside)).to be true
+    end
+    it 'returns false if it passes outside' do
+      outside = Cuboid.new(dimensions: [2, 2, 2])
+      inside = Cuboid.new(dimensions: [2, 2, 2], position: [1, 0, 0])
+      expect(inside.inside?(outside)).to be false
+    end
+  end
 end
