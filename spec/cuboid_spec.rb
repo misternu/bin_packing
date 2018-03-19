@@ -4,21 +4,27 @@ describe Cuboid do
   describe '.initialize' do
     it 'takes the dimensions as an array' do
       cuboid1 = Cuboid.new(dimensions: [1, 2, 3])
-      expect(cuboid1.x).to eq 1
-      expect(cuboid1.y).to eq 2
-      expect(cuboid1.z).to eq 3
+      expect(cuboid1.width).to eq 1
+      expect(cuboid1.height).to eq 2
+      expect(cuboid1.depth).to eq 3
     end
     it 'takes the dimensions separately' do
-      cuboid2 = Cuboid.new(x: 4, y: 5, z: 6)
-      expect(cuboid2.x).to eq 4
-      expect(cuboid2.y).to eq 5
-      expect(cuboid2.z).to eq 6
+      cuboid2 = Cuboid.new(width: 4, height: 5, depth: 6)
+      expect(cuboid2.width).to eq 4
+      expect(cuboid2.height).to eq 5
+      expect(cuboid2.depth).to eq 6
     end
   end
   describe '.to_cuboids' do
     it 'takes an array of array of numbers and returns an array of Cuboids' do
       cuboids = Cuboid.to_cuboids([[2, 2, 2], [1, 10, 10], [10, 10, 10]])
       expect(cuboids).to all be_a Cuboid
+    end
+  end
+  describe '.total_volume' do
+    it 'returns the total volume of the cuboids' do
+      cuboids = Cuboid.to_cuboids([[2, 2, 2], [1, 10, 10], [10, 10, 10]])
+      expect(Cuboid.total_volume(cuboids)).to eq 1108
     end
   end
   describe '#dimensions' do
