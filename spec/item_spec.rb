@@ -15,6 +15,12 @@ describe Item do
       expect(item2.z).to eq 6
     end
   end
+  describe '.to_items' do
+    it 'takes an array of array of numbers and returns an array of Items' do
+      items = Item.to_items([[2, 2, 2], [1, 10, 10], [10, 10, 10]])
+      expect(items).to all be_an Item
+    end
+  end
   describe '#dimensions' do
     it 'returns an array of the dimensions of an object' do
       item = Item.new(dimensions: [4, 2, 8])

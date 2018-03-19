@@ -11,6 +11,10 @@ class Item
     end
   end
 
+  def self.to_items(items)
+    items.map { |dimensions| Item.new(dimensions: dimensions) }
+  end
+
   def dimensions
     [@x, @y, @z]
   end
