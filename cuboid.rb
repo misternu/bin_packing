@@ -1,5 +1,5 @@
 # Class to represent item properties
-class Item
+class Cuboid
   attr_reader :x, :y, :z
   def initialize(options)
     if options[:dimensions]
@@ -11,8 +11,8 @@ class Item
     end
   end
 
-  def self.to_items(items)
-    items.map { |dimensions| Item.new(dimensions: dimensions) }
+  def self.to_cuboids(items)
+    items.map { |dimensions| Cuboid.new(dimensions: dimensions) }
   end
 
   def dimensions

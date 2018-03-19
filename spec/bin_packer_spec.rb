@@ -1,4 +1,5 @@
 require_relative '../bin_packer'
+
 describe BinPacker do
   describe '.total_item_volume' do
     it 'returns the total volume of the items' do
